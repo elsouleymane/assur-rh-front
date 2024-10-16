@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { addDataFailure, addDataSuccess, deleteContactDataFailure, deleteContactDataSuccess, fetchData, fetchDataFailure, fetchDataSuccess, updateContactDataFailure, updateContactDataSuccess } from '../actions/contact-action';
+import { addDataFailure, addDataSuccess, deleteContactDataFailure, deleteContactDataSuccess, fetchData, fetchDataFailure, fetchDataSuccess, updateContactDataFailure, updateContactDataSuccess } from '../action/contact-action';
 
 export interface ContactState {
     contact: any[];

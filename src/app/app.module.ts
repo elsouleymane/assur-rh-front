@@ -1,89 +1,72 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { RouterModule, Routes } from '@angular/router'; // Corrigé l'import pour Routes
 // Page Route
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutsModule } from './layouts/layouts.module';
 
 // toaster
 import { ToastrModule } from 'ngx-toastr';
 
-// Laguage
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 // Auth
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import { initFirebaseBackend } from './authUtils';
-import { FakeBackendInterceptor } from './core/helpers/fake-backend';
-import { ErrorInterceptor } from './core/helpers/error.interceptor';
-import { JwtInterceptor } from './core/helpers/jwt.interceptor';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { HttpClientModule } from '@angular/common/http';
 
-// Store
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { rootReducer } from 'src/app/store/reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AuthenticationEffects } from './store/effects/authentication.effects';
-
-// Component
+// Components
 import { AppComponent } from './app.component';
+import { FaqComponent } from './presentations/faq/faq.component';
+import { HomeComponent } from './presentations/home/home.component';
+import { SimulatorComponent } from './presentations/simulator/simulator.component';
+import { MylearningComponent } from './presentations/mylearning/mylearning.component';
+import { NewsComponent } from './presentations/news/news.component';
 
-// Store Effect
-import { InvoiceEffects } from './store/effects/invoce.effects';
-import { ContactEffects } from './store/effects/contact.effect';
-import { CalendarEffects } from './store/effects/calendar.effects';
-import { FileEffects } from './store/effects/filemanager.effect';
-import { ToDoEffects } from './store/effects/to-do.effect';
-import { KanbanEffects } from './store/effects/kanban.effect';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgxSimplebarModule } from 'ngx-simplebar';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+// import { CalendarComponent } from './presentations/calendar/calendar.component';
 
-export function createTranslateLoader(http: HttpClient): any {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
-}
 
-if (environment.defaultauth === 'firebase') {
-  initFirebaseBackend(environment.firebaseConfig);
-} else {
-  FakeBackendInterceptor;
-}
+// Définition des routes
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'simulator', component: SimulatorComponent },
+  // {path: 'calendar', component: CalendarComponent},
+  { path: 'mylearning', component: MylearningComponent },
+  { path: 'news', component: NewsComponent },
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    LayoutsModule,
     ToastrModule.forRoot(),
-    StoreModule.forRoot(rootReducer),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
-    }),
-    EffectsModule.forRoot([AuthenticationEffects,InvoiceEffects,ContactEffects,CalendarEffects,FileEffects,ToDoEffects,KanbanEffects]),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    RouterModule.forRoot(routes), // Configuration du routeur ici
+    HomeComponent,
+    FaqComponent,
+    MylearningComponent,
+    NewsComponent,
+    SimulatorComponent,
+    FullCalendarModule,
+    AlertModule.forRoot(),
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+    FlatpickrModule.forRoot(),
+    NgxSimplebarModule,
+    NgxDropzoneModule,
+
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
-  ],
+  schemas: [NO_ERRORS_SCHEMA],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

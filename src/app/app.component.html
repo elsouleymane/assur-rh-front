@@ -1,1 +1,25 @@
+<body>
+<header>
+    <div class="logo"><a routerLink="/" style="color: black;">Assur-RH</a></div>
+    <nav>
+        <div class="dropdown">
+            <a href="" class="mainmenubtn">Demandes</a>
+            <div class="dropdown-child">
+                <!-- <a href="simulator.html" class="mainmenubtn1">Congé</a> -->
+                <a routerLink="/simulator">Congé</a>
+                <a href="#" class="mainmenubtn2">Permission</a>
+            </div>
+        </div>
+        <!-- <a href="calendrier.html">Calendrier</a> -->
+        <a routerLink="/news">News</a>
+        <a routerLink="/calendrier">Calendrier</a>
+        <a routerLink="/mylearning">My Learning</a>
+        <a routerLink="/faq">FAQ</a>
+
+    </nav>
+    <div class="auth">
+        
+        <a href="#" class="signup">Déconexion</a>
+    </div>
+</header>
 <router-outlet></router-outlet>

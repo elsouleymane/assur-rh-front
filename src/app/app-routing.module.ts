@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guards/auth.guard';
+import { HomeComponent } from './presentations/home/home.component';
+import { FaqComponent } from './presentations/faq/faq.component';
+import { MylearningComponent } from './presentations/mylearning/mylearning.component';
+import { NewsComponent } from './presentations/news/news.component';
+import { SimulatorComponent } from './presentations/simulator/simulator.component';
 
 // Component
-import { LayoutComponent } from './layouts/layout.component';
-
 const routes: Routes = [
-  { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
-  { path: 'auth', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
-  { path: 'pages',loadChildren: () => import('./extraspages/extraspages.module').then(m => m.ExtraspagesModule)},
+  { path: '', component: HomeComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'mylearning', component: MylearningComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'simulator', component: SimulatorComponent },
 ];
 
 @NgModule({

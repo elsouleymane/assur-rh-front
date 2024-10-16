@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { EventInput } from '@fullcalendar/core';
-import { addEvent, deleteEvent, fetchEvents, fetchEventsSuccess, updateEventsSuccess } from '../actions/calendar.actions';
+import { addEvent, deleteEvent, fetchEvents, fetchEventsSuccess, updateEventsSuccess } from '../action/calendar.actions';
 
 export interface CalendarState {
     events: EventInput[];

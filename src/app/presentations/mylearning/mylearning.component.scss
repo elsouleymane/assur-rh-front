@@ -1,0 +1,226 @@
+/* menu */
+:root {
+    --primary-text: #4f8f70;
+    --secondary-text: #e9fff3;
+    --white-text-white: #ffffff;
+    --black-text-black: #000000;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background:#eaeaea;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.mainmenubtn {
+    background-color: skyblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.mainmenubtn:hover {
+    background-color: blue;
+}
+
+.dropdown {
+    position: relative; 
+}
+
+.dropdown-child {
+    margin-top: 5px;
+    display: none;
+    position: absolute;
+    background-color: skyblue;
+    z-index: 1;
+}
+
+.dropdown-child a {
+    color: rgb(95, 95, 97);
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+    color: #fff;
+}
+.mainmenubtn1:hover  {
+    /* background-color: #000; */
+    color: #fff;
+
+}
+.mainmenubtn2:hover{
+    /* background-color: #000; */
+    
+    color: #fff;
+
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.auth a {
+    margin-left: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+.auth .signup {
+    background-color: #333;
+    color: #fff;
+}
+
+/* fin menu */
+
+
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Course Content */
+.course-content {
+    flex: 2;
+    margin: 0px 100px 0px 200px;
+}
+
+.course-content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.video-section {
+    position: relative;
+}
+
+.video-section img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 6px;
+    background: orange;
+    border-radius: 3px;
+}
+
+.time {
+    font-size: 14px;
+    color: #666;
+}
+
+.lesson-info {
+    margin-top: 20px;
+}
+
+.tuto-info h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.tuto-info p {
+    color: #777;
+}
+
+.description {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.social-interactions {
+    margin-top: 10px;
+}
+
+.social-interactions span {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.sidebar ul li:hover {
+    color: #007bff;
+    cursor: pointer;
+}
